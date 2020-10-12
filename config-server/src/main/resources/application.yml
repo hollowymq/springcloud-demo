@@ -1,0 +1,20 @@
+server:
+  port: 6002
+spring:
+  application:
+    name: springbootConfig
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:/C://software/workSpaces/ideaWorkSpace/springcloud-demo/config
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 30
